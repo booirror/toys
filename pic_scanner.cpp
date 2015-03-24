@@ -46,7 +46,7 @@ void regexCapture(std::string pattern, std::string src, std::function<void(std::
 
 bool parseWebPage(std::string src, std::vector<std::string>& outvs)
 {
-	regexCapture(R"(href=\"(.*?)\")", src, [&outvs](std::smatch &mResult){outvs.push_back(mResult[1]); });
+	regexCapture(R"(href="(.*?)")", src, [&outvs](std::smatch &mResult){outvs.push_back(mResult[1]); });
 	return true;
 }
 
@@ -107,21 +107,21 @@ NUMCNT:
 
 void parseCurrPagePic(std::string src, std::map<std::string, std::string>& picvec)
 {
-	regexCapture(R"(href=\"(.*?)\" title=\"(.+?)\")", src, [&picvec](std::smatch& mResult) {
+	regexCapture(R"(href="(.*?)" title="(.+?)")", src, [&picvec](std::smatch& mResult) {
 		picvec[mResult[1]] = mResult[2];
 	});
 }
 
 void parseCurrPicUrl(std::string src, std::vector<std::string>& picvec)
 {
-	regexCapture(R"(<img.+?src=\"(/.*?\.jpg)\")", src, [&picvec](std::smatch& mResult) {
+	regexCapture(R"(<img.+?src="(/.*?\.jpg)")", src, [&picvec](std::smatch& mResult) {
 		picvec.push_back(mResult[1]);
 	});
 }
 
 void parseOtherPage(std::string src, std::vector<std::string>& picvec)
 {
-	regexCapture(R"(<a href=\"(.+?\.html)\">\d</a>)", src, [&picvec](std::smatch& mResult){
+	regexCapture(R"(<a href="(.+?\.html)">\d</a>)", src, [&picvec](std::smatch& mResult){
 		picvec.push_back(mResult[1]);
 	});
 }
