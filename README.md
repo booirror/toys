@@ -1,6 +1,6 @@
 toys
 ------------
-some toy programs.
+AweSome toy programs:
 + beautiful picture donwloader(C++)
 + JSON parser(C++)
 + blogRank: list all page views of your csdn blog(C++)
