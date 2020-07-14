@@ -7,3 +7,4 @@ some toy programs.
 + linlink core algorithm(Lua)
 + mail address crawler(C#)
 + calculator(C)
++ pull the data of A share market(javascript)
